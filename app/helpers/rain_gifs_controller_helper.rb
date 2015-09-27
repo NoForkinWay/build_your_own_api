@@ -1,0 +1,2 @@
+module RainGifsControllerHelper
+end

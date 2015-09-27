@@ -1,0 +1,2 @@
+module SunGifsControllerHelper
+end
