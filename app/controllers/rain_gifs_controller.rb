@@ -1,6 +1,6 @@
 class RainGifsController < ApplicationController
   def index
-    render json: RainGif.new("123").condition_gif
+    render json: RainGif.new("29115").condition_gif
   end
 
   def show

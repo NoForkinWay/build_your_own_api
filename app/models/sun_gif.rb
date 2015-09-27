@@ -1,3 +1,4 @@
+class SunGif < ActiveRecord::Base
 def initialize(zip)
   @zip = zip
   @response = get_response
@@ -15,3 +16,4 @@ end
   def condition_gif
     @response["data"].sample["images"]["fixed_height"]["url"]
   end
+end
