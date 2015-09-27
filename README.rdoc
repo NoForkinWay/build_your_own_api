@@ -1,7 +1,33 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This program is an API digestible by other programs. It pulls from two separate APIs: (1) Weather Underground (2) api.giphy.com. Our API allows a user to enter thier zipcode, receive a weather condition based on the information entered, and returns a giph based on the given weather condition.
+
+How it works:
+
+Pulling weather conditions based on zipcode:
+
+private def get_response
+    key = ENV['YOUR PRIVATE KEY']
+    HTTParty.get("http://api.wunderground.com/api/#{key}/conditions/q/SC/#{@zip}.json")
+    end
+    
+Pulling giphs based on condition:
+
+def combo
+    forecast = CurrentCondition.new("zip").condition
+    rain_gif = RainGif.new("zip").condition_gif
+    # sun_gif = SunGif.new("zip").condition_gif
+    # idk_gif = IdkGif.new("zip").condition_gif
+    case
+    when forecast.match(/(rain)/i)
+      return rain_gif
+      # when forecast.match(/(sun)/i)
+      #   return sun_gif
+      # else idk_gif
+    end
+  end
+end
+
 
 Things you may want to cover:
 
