@@ -11,7 +11,7 @@ private def get_response
     HTTParty.get("http://api.wunderground.com/api/#{key}/conditions/q/SC/#{@zip}.json")
     end
     
-Pulling giphs based on condition:
+Pulling gifs based on condition:
 
   def combo
     forecast = CurrentCondition.new(params[:zip]).condition
