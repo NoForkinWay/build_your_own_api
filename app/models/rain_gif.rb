@@ -1,4 +1,4 @@
-class RainGif < ActiveRecord::Base
+class RainGif 
   def initialize(zip)
     @zip = zip
     @response = get_response
@@ -12,5 +12,4 @@ class RainGif < ActiveRecord::Base
     file = File.join(Rails.root, 'test','models','json_gifs','rain.json')
     JSON.parse(File.read(file))
   end
-
 end
