@@ -1,54 +1,31 @@
-== README
+# README
 
 This program is an API digestible by other programs. It pulls from two separate APIs: (1) Weather Underground (2) api.giphy.com. Our API allows a user to enter thier zipcode, receive a weather condition based on the information entered, and returns a giph based on the given weather condition.
 
-How it works:
+##How it works:
 
 Pulling weather conditions based on zipcode:
 
-private def get_response
-    key = ENV['YOUR PRIVATE KEY']
-    HTTParty.get("http://api.wunderground.com/api/#{key}/conditions/q/SC/#{@zip}.json")
-    end
+  def condition
+    @response["current_observation"]["weather"]
+  end
+  
+  private def get_response
+    key = ENV['WUNDERGROUND_KEY']
+    HTTParty.get("http://api.wunderground.com/api/#{YOUR KEY HERE}/conditions/q/#{@zip}.json")
+  end
+  
+  =====>>>>
+  
+  def condition_gif
+    @response["data"].sample["images"]["fixed_height"]["url"]
+  end
+
+  private def get_response
+    forecast = CurrentCondition.new(@zip).condition
+
+    if forecast.match(/(rain)/i)
+      HTTParty.get("http://api.giphy.com/v1/gifs/search?q={#{forecast}}&YOUR API KEY HERE")
+      
+      ^^ finds the condition of weather in your zipcode and uses regex to extract the key words to match with the corrisponding gif! (There is a series of if else statments to match the current condition)
     
-Pulling gifs based on condition:
-
-  def combo
-    forecast = CurrentCondition.new(params[:zip]).condition
-    rain_gif = RainGif.new("zip").condition_gif
-    idk_gif = IdkGif.new("zip").condition_gif
-     # sun_gif = SunGif.new("zip").condition_gif
-     case
-       return rain_gif
-     # when forecast.match(/(sun)/i)
-     #   return sun_gif
-     end
-     idk_gif
-   end
-  # end
-end
-
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
