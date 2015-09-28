@@ -4,6 +4,6 @@ class GifsController < ApplicationController
   end
 
   def show
-    @zip = params[:zip]
- end
+    render json: Gif.new(params[:zip]).condition_gif
+  end
 end

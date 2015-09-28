@@ -22,7 +22,7 @@ class Gif
     elsif forecast.match(/(cloud)/i)
       HTTParty.get("http://api.giphy.com/v1/gifs/search?q={#{forecast}}&api_key=dc6zaTOxFJmzC")
     elsif forecast.match(/(thunderstorm)/i)
-      HTTParty.get("http://api.giphy.com/v1/gifs/search?q={#{forecast}}&api_key=dc6zaTOxFJmzC")
+      HTTParty.get("http://giphy.com/gifs/thunderstorm-kwpa0M7OAoYFy")
     else
       HTTParty.get("http://api.giphy.com/v1/gifs/search?q=baby-confused-idk&api_key=dc6zaTOxFJmzC")
     end

@@ -1,19 +1,16 @@
 Rails.application.routes.draw do
-  root 'gifs#show'
+  # root 'gifs#show'
 
-  get 'condition_gifs/index'
-  get 'condition_gifs/show'
+    get 'condition_gifs/index'
+    get 'condition_gifs/show'
 
-  # get 'gifs/index'
-  # get 'gifs/show'
+    get 'gifs/index'
+    # get 'gifs/show'
 
-  get 'current_conditions/index'
-  get 'current_conditions/show'
+    get 'current_conditions/index'
+    get 'current_conditions/show'
 
-
-#  get 'gifs/index/:zip' => 'gifs/api/v1/sweetgifs'
-
-   get 'api/v1/sweetgifs' => 'gifs#show'
+    get 'api/v1/sweetgifs'=> 'gifs#show'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,12 +1,12 @@
-class CurrentConditionsController < ApplicationController
-  def index
-    @zip = params[:zip]
-  end
-
-  def show
-    render json: CurrentCondition.new(params[:zip]).condition
-  end
-end
+# class CurrentConditionsController < ApplicationController
+#   def index
+#     render json: CurrentCondition.new(params[:zip]).condition
+#   end
+#
+#   def show
+#     @zip = params[:zip]
+#   end
+# end
 
 
 
